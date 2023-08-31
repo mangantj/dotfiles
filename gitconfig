@@ -1,0 +1,50 @@
+[color]
+  ui = true
+[user]
+  name = Tyler Mangan
+  email = mangantj@gmail.com
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+[core]
+	excludesfile = ~/.gitignore
+[diff]
+  colorMoved = zebra
+[difftool "opendiff"]
+	cmd = /usr/bin/opendiff $LOCAL $REMOTE
+[mergetool "opendiff"]
+  cmd = /usr/bin/opendiff $LOCAL $REMOTE -ancestor $BASE -merge $MERGED
+	trustExitCode = true
+[merge]
+  tool = opendiff
+[push]
+	default = current
+	autoSetupRemote = true
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[rebase]
+  autosquash = true
+[include]
+  path = ~/.gitconfig.local
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

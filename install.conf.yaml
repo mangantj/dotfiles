@@ -1,0 +1,28 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ["~"]
+
+- link:
+    ~/.alacritty.yml: alacritty.yml
+    ~/.coc-settings.json: coc-settings.json
+    ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
+    ~/.ignore: ignore
+    ~/.irbrc: irbrc
+    ~/.private: private
+    ~/.pryrc: pryrc
+    ~/.rspec: rspec
+    ~/.rubocop.yml: rubocop.yml
+    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf.local: tmux.conf.local
+    ~/.vimrc: vimrc
+    ~/.zprofile: zprofile
+    ~/.zshrc: zshrc
+
+- create:
+    - ~/.tmux/plugins
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
