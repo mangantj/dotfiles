@@ -134,6 +134,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 if [ -d /opt/homebrew/bin ]; then
   export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 fi
+
 if command -v brew &> /dev/null; then
   export BREW_PREFIX=$(brew --prefix)
 fi
@@ -144,6 +145,7 @@ if command -v nvim &> /dev/null; then
 else
   export EDITOR=$(which vim)
 fi
+
 export GIT_EDITOR=$EDITOR
 export BUNDLER_EDITOR=$EDITOR
 
@@ -155,3 +157,10 @@ bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
 
 # autocomplete
 autoload -U compinit; compinit
+
+source ~/.zprofile  
+
+export FONT_AWESOME_NPM_TOKEN=460207E9-9F3E-40D7-A3D7-F1A673935262
+# load the private settings
+source ~/.private
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
